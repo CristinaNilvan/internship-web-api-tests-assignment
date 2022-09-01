@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesApp.Assignments", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesApp.Presentation", "RecipesApp.Presentation\RecipesApp.Presentation.csproj", "{AF687A4B-51C9-4814-B8AE-395A6F2BABF7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesApp.UnitTests", "RecipesApp.UnitTests\RecipesApp.UnitTests.csproj", "{BD6CAA73-2D16-47E2-BDC1-0D44411CC16A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AF687A4B-51C9-4814-B8AE-395A6F2BABF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF687A4B-51C9-4814-B8AE-395A6F2BABF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF687A4B-51C9-4814-B8AE-395A6F2BABF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD6CAA73-2D16-47E2-BDC1-0D44411CC16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD6CAA73-2D16-47E2-BDC1-0D44411CC16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD6CAA73-2D16-47E2-BDC1-0D44411CC16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD6CAA73-2D16-47E2-BDC1-0D44411CC16A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

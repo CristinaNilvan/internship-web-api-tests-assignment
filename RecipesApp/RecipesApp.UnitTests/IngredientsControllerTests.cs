@@ -20,7 +20,7 @@ namespace RecipesApp.UnitTests
         private Mock<ILogger<IngredientsController>> _mockLogger = new ();
 
         [Fact]
-        public async Task Create_Ingredient_ShouldReturnNoContent()
+        public async Task Create_Ingredient_ShouldReturnNoContentStatusCode()
         {
             // arrange
             _mockMediator
@@ -73,7 +73,7 @@ namespace RecipesApp.UnitTests
         }
 
         [Fact]
-        public async Task Get_Ingredient_By_Id_ShouldReturnFoundIngredient()
+        public async Task Get_Ingredient_By_Id_ShouldReturnOkStatusCode()
         {
             // arrange
             _mockMediator
@@ -113,13 +113,13 @@ namespace RecipesApp.UnitTests
             var result = await ingredientsController.GetIngredientById(2);
 
             // assert
-            var okResult = result.Result as OkObjectResult;
+            var okResult = result as OkObjectResult;
 
-            Assert.Equal(ingredientDto, okResult.Value);
+            Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
         }
 
         [Fact]
-        public async Task Update_Ingredient_ShouldReturnNoContent()
+        public async Task Update_Ingredient_ShouldReturnNoContentStatusCode()
         {
             // arrange
             _mockMediator
@@ -172,7 +172,7 @@ namespace RecipesApp.UnitTests
         }
 
         [Fact]
-        public async Task Delete_Ingredient_ShouldReturnNoContent()
+        public async Task Delete_Ingredient_ShouldReturnNoContentStatusCode()
         {
             // arrange
             _mockMediator

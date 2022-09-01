@@ -49,7 +49,7 @@ namespace RecipesApp.Presentation.Controllers
 
         [HttpGet]
         [Route("{ingredientId:int}")]
-        public async Task<ActionResult<IngredientGetDto>> GetIngredientById(int ingredientId)
+        public async Task<IActionResult> GetIngredientById(int ingredientId)
         {
             _logger.LogInformation(LogEvents.GetItem, "Getting ingredient {id}", ingredientId);
 

@@ -24,7 +24,6 @@ namespace RecipesApp.Infrastructure.Context
             context.SaveChanges();
         }
 
-
         private static IEnumerable<Ingredient> GetPreconfiguredIngredients()
         {
             var ingredientNames = new List<string>()

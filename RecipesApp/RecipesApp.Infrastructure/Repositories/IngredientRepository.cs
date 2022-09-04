@@ -63,9 +63,14 @@ namespace RecipesApp.Infrastructure.Repositories
 
         public async Task Update(Ingredient ingredient)
         {
-            _dataContext
-                .Ingredients
-                .Update(ingredient);
+            var ing = _dataContext
+                .Ingredients;
+
+            int x = 2;
+
+            var updated = ing.Update(ingredient);
+
+            var y = 3;
         }
 
         public async Task UpdateApprovedStatus(Ingredient ingredient, bool status)

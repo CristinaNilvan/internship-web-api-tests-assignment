@@ -1,11 +1,8 @@
-using Bogus;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using RecipesApp.Domain.Enums;
-using RecipesApp.Domain.Models;
 using RecipesApp.Presentation.Dtos.IngredientDtos;
 using System.Net;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Text;
 
 namespace RecipesApp.IntegrationTests
@@ -65,6 +62,28 @@ namespace RecipesApp.IntegrationTests
 
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
         }
+
+/*        [Fact]
+        public async Task Update_Ingredient_ShouldReturnNoContentResponse()
+        {
+            var ingredientPutPostDto = new IngredientPutPostDto
+            {
+                Name = "Updated",
+                Category = IngredientCategory.Meat,
+                Calories = 50,
+                Fats = 50,
+                Carbs = 50,
+                Proteins = 50,
+            };
+
+            var client = _factory.CreateClient();
+            var response = await client.PutAsync("api/ingredients/2",
+                new StringContent(JsonConvert.SerializeObject(ingredientPutPostDto), Encoding.UTF8, "application/json"));
+
+            var x = 3;
+
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+        }*/
 
         public void Dispose()
         {

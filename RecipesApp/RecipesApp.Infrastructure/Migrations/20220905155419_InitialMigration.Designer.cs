@@ -12,8 +12,8 @@ using RecipesApp.Infrastructure.Context;
 namespace RecipesApp.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220830083311_FourthMigration")]
-    partial class FourthMigration
+    [Migration("20220905155419_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,7 +239,7 @@ namespace RecipesApp.Infrastructure.Migrations
             modelBuilder.Entity("RecipesApp.Domain.Models.IngredientImage", b =>
                 {
                     b.HasOne("RecipesApp.Domain.Models.Ingredient", "Ingredient")
-                        .WithOne("IngredientImages")
+                        .WithOne("IngredientImage")
                         .HasForeignKey("RecipesApp.Domain.Models.IngredientImage", "IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -311,7 +311,7 @@ namespace RecipesApp.Infrastructure.Migrations
 
             modelBuilder.Entity("RecipesApp.Domain.Models.Ingredient", b =>
                 {
-                    b.Navigation("IngredientImages");
+                    b.Navigation("IngredientImage");
 
                     b.Navigation("RecipeIngredients");
                 });

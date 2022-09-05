@@ -51,6 +51,26 @@ namespace RecipesApp.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "IngredientImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StorageImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IngredientId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IngredientImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_IngredientImages_Ingredients_IngredientId",
+                        column: x => x.IngredientId,
+                        principalTable: "Ingredients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RecipeIngredients",
                 columns: table => new
                 {
@@ -91,20 +111,37 @@ namespace RecipesApp.Infrastructure.Migrations
                         name: "FK_MealPlans_Recipes_BreakfastId",
                         column: x => x.BreakfastId,
                         principalTable: "Recipes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_MealPlans_Recipes_DinnerId",
                         column: x => x.DinnerId,
                         principalTable: "Recipes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_MealPlans_Recipes_LunchId",
                         column: x => x.LunchId,
                         principalTable: "Recipes",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecipeImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StorageImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecipeImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RecipeImages_Recipes_RecipeId",
+                        column: x => x.RecipeId,
+                        principalTable: "Recipes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -134,6 +171,12 @@ namespace RecipesApp.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_IngredientImages_IngredientId",
+                table: "IngredientImages",
+                column: "IngredientId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MealPlans_BreakfastId",
                 table: "MealPlans",
                 column: "BreakfastId");
@@ -147,6 +190,12 @@ namespace RecipesApp.Infrastructure.Migrations
                 name: "IX_MealPlans_LunchId",
                 table: "MealPlans",
                 column: "LunchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecipeImages_RecipeId",
+                table: "RecipeImages",
+                column: "RecipeId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_RecipeIngredients_IngredientId",
@@ -167,7 +216,13 @@ namespace RecipesApp.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "IngredientImages");
+
+            migrationBuilder.DropTable(
                 name: "MealPlans");
+
+            migrationBuilder.DropTable(
+                name: "RecipeImages");
 
             migrationBuilder.DropTable(
                 name: "RecipeWithRecipeIngredients");

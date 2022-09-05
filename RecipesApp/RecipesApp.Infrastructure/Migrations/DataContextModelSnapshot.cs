@@ -237,7 +237,7 @@ namespace RecipesApp.Infrastructure.Migrations
             modelBuilder.Entity("RecipesApp.Domain.Models.IngredientImage", b =>
                 {
                     b.HasOne("RecipesApp.Domain.Models.Ingredient", "Ingredient")
-                        .WithOne("IngredientImages")
+                        .WithOne("IngredientImage")
                         .HasForeignKey("RecipesApp.Domain.Models.IngredientImage", "IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -309,7 +309,7 @@ namespace RecipesApp.Infrastructure.Migrations
 
             modelBuilder.Entity("RecipesApp.Domain.Models.Ingredient", b =>
                 {
-                    b.Navigation("IngredientImages");
+                    b.Navigation("IngredientImage");
 
                     b.Navigation("RecipeIngredients");
                 });

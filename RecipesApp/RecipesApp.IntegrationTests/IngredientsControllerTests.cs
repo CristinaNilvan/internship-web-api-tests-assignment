@@ -63,7 +63,7 @@ namespace RecipesApp.IntegrationTests
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
         }
 
-/*        [Fact]
+        [Fact]
         public async Task Update_Ingredient_ShouldReturnNoContentResponse()
         {
             var ingredientPutPostDto = new IngredientPutPostDto
@@ -83,7 +83,7 @@ namespace RecipesApp.IntegrationTests
             var x = 3;
 
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
-        }*/
+        }
 
         public void Dispose()
         {
